@@ -1,8 +1,10 @@
 package manuelmouta.clarifi_ai_app;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -51,7 +54,12 @@ public class LandingPageActivity extends BaseActivity{
         takePicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                takePicture();
+                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+                if (currentapiVersion >= Build.VERSION_CODES.M){
+                    requestCameraPermission();
+                } else{
+                    takePicture();
+                }
             }
         });
     }
@@ -132,10 +140,11 @@ public class LandingPageActivity extends BaseActivity{
         return image;
     }
 
-    class PredictResultsTask extends AsyncTask<String, Void, String> {
+    class PredictResultsTask extends AsyncTask<String, Void, ArrayList<String>> {
 
-        protected String doInBackground(String... args) {
+        protected ArrayList<String> doInBackground(String... args) {
             try {
+                ArrayList<String> result = new ArrayList<String>();
                 File file = new File(args[0]);
                 final List<ClarifaiOutput<Concept>> predictionResults =
                         client.getDefaultModels().generalModel() // You can also do client.getModelByID("id") to get custom models
@@ -146,15 +155,40 @@ public class LandingPageActivity extends BaseActivity{
                                 .executeSync()
                                 .get();
 
-                return predictionResults.get(0).data().get(0).name();
+                result.add(predictionResults.get(0).data().get(0).name());
+                result.add(predictionResults.get(0).data().get(1).name());
+                return result;
 
             } catch (Exception e) {
-                return "";
+                return null;
             }
         }
 
-        protected void onPostExecute(String result) {
-            predictionValue.setText("Great... You're watching a "+result+"...");
+        protected void onPostExecute(ArrayList<String> result) {
+            if(result==null){
+
+            }else{
+                predictionValue.setText("I think you're seeing a "+result.get(0)+", or maybe a "+result.get(1));
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_CAMERA: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    takePicture();
+
+                } else {
+
+                }
+                return;
+            }
         }
     }
 }

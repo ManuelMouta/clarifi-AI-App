@@ -142,10 +142,12 @@ public class LandingPageActivity extends BaseActivity{
             }
             else if (action.equals("add")){
                 Intent intent = new Intent(LandingPageActivity.this,AddImageActivity.class);
+                intent.putExtra("photoPath",mCurrentPhotoPath);
                 startActivity(intent);
             }
             else if(action.equals("train")){
                 Intent intent = new Intent(LandingPageActivity.this,AddImageActivity.class);
+                intent.putExtra("photoPath",mCurrentPhotoPath);
                 startActivity(intent);
             }
         }

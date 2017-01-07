@@ -12,6 +12,6 @@ public class AddImageActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.landing_page);
+        setContentView(R.layout.add_image);
     }
 }

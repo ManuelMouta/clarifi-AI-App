@@ -14,7 +14,7 @@ import manuelmouta.clarifi_ai_app.interfaces.AddToModelService;
  * Created by manuelmouta on 07/01/17.
  */
 
-public class ServiceAddToModel extends AsyncTask<String, Void, Boolean> {
+public class ServiceAddToModel extends AsyncTask<String, Void, ConceptModel> {
 
     public AddToModelService serviceAddModel = null;
 
@@ -31,23 +31,27 @@ public class ServiceAddToModel extends AsyncTask<String, Void, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(String... params) {
+    protected ConceptModel doInBackground(String... params) {
         try {
-            final ConceptModel Model = client.createModel("pets")
+            final ConceptModel Model = client.createModel("TestModel")
                     .withOutputInfo(ConceptOutputInfo.forConcepts(
                             Concept.forID(concept)
                     ))
                     .executeSync()
                     .get();
 
-            return true;
+            return Model;
         }catch (Exception e){
-            return false;
+            return null;
         }
     }
 
     @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
+    protected void onPostExecute(ConceptModel model) {
+        if(model!=null){
+            serviceAddModel.onAddToModel(model);
+        }else{
+            serviceAddModel.onAddToModelError();
+        }
     }
 }

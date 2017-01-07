@@ -12,19 +12,23 @@ import android.widget.ImageView;
 
 import java.io.File;
 
+import clarifai2.dto.model.ConceptModel;
 import manuelmouta.clarifi_ai_app.R;
 import manuelmouta.clarifi_ai_app.interfaces.AddImageService;
 import manuelmouta.clarifi_ai_app.interfaces.AddToModelService;
+import manuelmouta.clarifi_ai_app.interfaces.TrainModelService;
 import manuelmouta.clarifi_ai_app.services.ServiceAddConcept;
 import manuelmouta.clarifi_ai_app.interfaces.AddConceptService;
 import manuelmouta.clarifi_ai_app.services.ServiceAddImage;
 import manuelmouta.clarifi_ai_app.services.ServiceAddToModel;
+import manuelmouta.clarifi_ai_app.services.ServiceTrainModel;
 
 /**
  * Created by manuelmouta on 07/01/17.
  */
 
-public class AddImageActivity extends BaseActivity implements AddConceptService,AddImageService,AddToModelService {
+public class AddImageActivity extends BaseActivity implements AddConceptService,
+        AddImageService,AddToModelService,TrainModelService {
 
     //services
     //add concept service
@@ -36,6 +40,9 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
     //add image service
     private ServiceAddToModel addToModelParser;
     private AddToModelService service2 = this;
+    //train model service
+    private ServiceTrainModel trainModelParser;
+    private TrainModelService service3 = this;
 
     private ImageView photo;
 
@@ -118,12 +125,23 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
     }
 
     @Override
-    public void onAddToModel() {
-
+    public void onAddToModel(ConceptModel model) {
+        trainModelParser = new ServiceTrainModel(model,mCtx);
+        trainModelParser.serviceTrainModel = service3;
     }
 
     @Override
     public void onAddToModelError() {
+
+    }
+
+    @Override
+    public void onModelTrained() {
+
+    }
+
+    @Override
+    public void onModelTrainedError() {
 
     }
 }

@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import clarifai2.api.ClarifaiClient;
 import clarifai2.dto.prediction.Concept;
-import manuelmouta.clarifi_ai_app.interfaces.addConceptService;
+import manuelmouta.clarifi_ai_app.interfaces.AddConceptService;
 
 /**
  * Created by manuelmouta on 07/01/17.
@@ -13,7 +13,7 @@ import manuelmouta.clarifi_ai_app.interfaces.addConceptService;
 
 public class ServiceAddConcept extends AsyncTask<String, Void, Boolean> {
 
-    public addConceptService serviceAddConcept = null;
+    public AddConceptService serviceAddConcept = null;
 
     private Context context;
 

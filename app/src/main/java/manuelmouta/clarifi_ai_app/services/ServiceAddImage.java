@@ -9,8 +9,7 @@ import clarifai2.api.ClarifaiClient;
 import clarifai2.dto.input.ClarifaiInput;
 import clarifai2.dto.input.image.ClarifaiImage;
 import clarifai2.dto.prediction.Concept;
-import manuelmouta.clarifi_ai_app.interfaces.addConceptService;
-import manuelmouta.clarifi_ai_app.interfaces.addImageService;
+import manuelmouta.clarifi_ai_app.interfaces.AddImageService;
 
 /**
  * Created by manuelmouta on 07/01/17.
@@ -18,7 +17,7 @@ import manuelmouta.clarifi_ai_app.interfaces.addImageService;
 
 public class ServiceAddImage extends AsyncTask<String, Void, Boolean> {
 
-    public addImageService serviceAddImage = null;
+    public AddImageService serviceAddImage = null;
 
     private Context context;
 

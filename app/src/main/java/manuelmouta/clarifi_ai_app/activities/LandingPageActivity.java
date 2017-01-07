@@ -1,4 +1,4 @@
-package manuelmouta.clarifi_ai_app;
+package manuelmouta.clarifi_ai_app.activities;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,12 +25,13 @@ import clarifai2.dto.input.ClarifaiInput;
 import clarifai2.dto.input.image.ClarifaiImage;
 import clarifai2.dto.model.output.ClarifaiOutput;
 import clarifai2.dto.prediction.Concept;
+import manuelmouta.clarifi_ai_app.R;
 
 /**
  * Created by manuelmouta on 05/01/17.
  */
 
-public class LandingPageActivity extends BaseActivity{
+public class LandingPageActivity extends BaseActivity {
 
     //Buttons
     private Button takePicBtn;
@@ -70,12 +71,7 @@ public class LandingPageActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 action = "detect";
-                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-                if (currentapiVersion >= Build.VERSION_CODES.M){
-                    requestCameraPermission();
-                } else{
-                    takePicture();
-                }
+                launchCamera();
             }
         });
 
@@ -83,7 +79,7 @@ public class LandingPageActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 action = "add";
-
+                launchCamera();
             }
         });
 
@@ -91,7 +87,7 @@ public class LandingPageActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 action = "train";
-
+                launchCamera();
             }
         });
     }
@@ -101,6 +97,14 @@ public class LandingPageActivity extends BaseActivity{
         super.onResume();
     }
 
+    private void launchCamera(){
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion >= Build.VERSION_CODES.M){
+            requestCameraPermission();
+        } else{
+            takePicture();
+        }
+    }
     private void takePicture() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent

@@ -169,7 +169,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="ae86fc93485b0206d1acfb42cb3ecb8ffaa9f06b">
+        sha1="cf6932cbb413a0f9f63a252bbd1cbbb0865c24d1">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5c9ea73a8669fe4dcf6d2f6eaece5fdf8853fd58/classes.dex" />
     </item>
     <item

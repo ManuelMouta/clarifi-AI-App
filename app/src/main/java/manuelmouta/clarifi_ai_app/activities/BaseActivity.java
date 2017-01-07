@@ -1,4 +1,4 @@
-package manuelmouta.clarifi_ai_app;
+package manuelmouta.clarifi_ai_app.activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

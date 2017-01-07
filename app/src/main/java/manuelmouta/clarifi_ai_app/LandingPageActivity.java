@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.File;
@@ -33,14 +34,24 @@ public class LandingPageActivity extends BaseActivity{
 
     //Buttons
     private Button takePicBtn;
+    private Button addPicBtn;
+    private Button trainBtn;
 
+    //Text Value
     private TextView predictionValue;
 
+    //Constants
     static final int REQUEST_TAKE_PHOTO = 0;
+
+    //Progress Bar
+    private ProgressBar progressBar;
 
     //photo utils
     private String mCurrentPhotoPath;
     private String mtimeStamp;
+
+    //Camera Button Action
+    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +59,39 @@ public class LandingPageActivity extends BaseActivity{
         setContentView(R.layout.landing_page);
 
         takePicBtn = (Button) findViewById(R.id.takePicBtn);
+        addPicBtn = (Button) findViewById(R.id.addPicBtn);
+        trainBtn = (Button) findViewById(R.id.trainBtn);
 
         predictionValue = (TextView) findViewById(R.id.prediction);
+
+        progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
 
         takePicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                action = "detect";
                 int currentapiVersion = android.os.Build.VERSION.SDK_INT;
                 if (currentapiVersion >= Build.VERSION_CODES.M){
                     requestCameraPermission();
                 } else{
                     takePicture();
                 }
+            }
+        });
+
+        addPicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                action = "add";
+
+            }
+        });
+
+        trainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                action = "train";
+
             }
         });
     }
@@ -104,10 +136,18 @@ public class LandingPageActivity extends BaseActivity{
                 Log.e("ERROR: ",e.toString());
             }
         }
-        else if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK){
-
-            new PredictResultsTask().execute(mCurrentPhotoPath);
-            
+        else if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+            if (action.equals("detect")) {
+                new PredictResultsTask().execute(mCurrentPhotoPath);
+            }
+            else if (action.equals("add")){
+                Intent intent = new Intent(LandingPageActivity.this,AddImageActivity.class);
+                startActivity(intent);
+            }
+            else if(action.equals("train")){
+                Intent intent = new Intent(LandingPageActivity.this,AddImageActivity.class);
+                startActivity(intent);
+            }
         }
     }
 
@@ -142,6 +182,14 @@ public class LandingPageActivity extends BaseActivity{
 
     class PredictResultsTask extends AsyncTask<String, Void, ArrayList<String>> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+            takePicBtn.setVisibility(View.GONE);
+            predictionValue.setVisibility(View.GONE);
+        }
+
         protected ArrayList<String> doInBackground(String... args) {
             try {
                 ArrayList<String> result = new ArrayList<String>();
@@ -165,6 +213,9 @@ public class LandingPageActivity extends BaseActivity{
         }
 
         protected void onPostExecute(ArrayList<String> result) {
+            progressBar.setVisibility(View.GONE);
+            takePicBtn.setVisibility(View.VISIBLE);
+            predictionValue.setVisibility(View.VISIBLE);
             if(result==null){
 
             }else{

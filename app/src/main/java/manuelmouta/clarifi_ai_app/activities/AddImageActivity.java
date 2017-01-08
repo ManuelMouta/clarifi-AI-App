@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -54,6 +56,8 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
     private String imagePath;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +72,8 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
         addImageBtn = (Button) findViewById(R.id.addImageBtn);
 
         conceptName = (EditText) findViewById(R.id.conceptName);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         addImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +90,7 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
         addConceptParser = new ServiceAddConcept(mCtx,client,concept);
         addConceptParser.serviceAddConcept = service;
+        addConceptParser.execute();
     }
 
     private void showPhoto(String path){
@@ -104,11 +111,15 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
         addImageParser = new ServiceAddImage(mCtx,imagePath,client,concept);
         addImageParser.serviceAddImage = service1;
+        progressBar.setVisibility(View.VISIBLE);
+        addImageParser.execute();
     }
 
     @Override
     public void onConceptAddedError() {
-
+        Toast toast = Toast.makeText(mCtx, "Failed to Add Concept", Toast.LENGTH_SHORT);
+        toast.show();
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -117,31 +128,40 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
         addToModelParser = new ServiceAddToModel(mCtx,client,concept);
         addToModelParser.serviceAddModel = service2;
+        addToModelParser.execute();
     }
 
     @Override
     public void onImageAddedError() {
-
+        Toast toast = Toast.makeText(mCtx, "Failed to Add Image", Toast.LENGTH_SHORT);
+        toast.show();
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void onAddToModel(ConceptModel model) {
         trainModelParser = new ServiceTrainModel(model,mCtx);
         trainModelParser.serviceTrainModel = service3;
+        trainModelParser.execute();
     }
 
     @Override
     public void onAddToModelError() {
-
+        Toast toast = Toast.makeText(mCtx, "Failed Adding to Model", Toast.LENGTH_SHORT);
+        toast.show();
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void onModelTrained() {
-
+        progressBar.setVisibility(View.GONE);
+        finish();
     }
 
     @Override
     public void onModelTrainedError() {
-
+        Toast toast = Toast.makeText(mCtx, "Failed training Model", Toast.LENGTH_SHORT);
+        toast.show();
+        progressBar.setVisibility(View.GONE);
     }
 }

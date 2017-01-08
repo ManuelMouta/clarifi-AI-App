@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import clarifai2.api.ClarifaiClient;
+import clarifai2.api.request.ClarifaiRequest;
 import clarifai2.dto.prediction.Concept;
 import manuelmouta.clarifi_ai_app.interfaces.AddConceptService;
 
@@ -29,14 +30,15 @@ public class ServiceAddConcept extends AsyncTask<String, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(String... params) {
-        if(client.getConceptByID(concept)==null){
+        try {
             client.addConcepts()
                     .plus(
                             Concept.forID(concept)
                     )
                     .executeSync();
+
             return true;
-        }else{
+        }catch (Exception e){
             return false;
         }
     }

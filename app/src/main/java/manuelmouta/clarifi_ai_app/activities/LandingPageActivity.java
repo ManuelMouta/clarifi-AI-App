@@ -14,17 +14,25 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import clarifai2.api.ClarifaiResponse;
 import clarifai2.dto.input.ClarifaiInput;
 import clarifai2.dto.input.image.ClarifaiImage;
 import clarifai2.dto.model.output.ClarifaiOutput;
 import clarifai2.dto.prediction.Concept;
+import clarifai2.dto.prediction.Prediction;
+import clarifai2.internal.JSONObjectBuilder;
 import manuelmouta.clarifi_ai_app.R;
 
 /**
@@ -193,6 +201,8 @@ public class LandingPageActivity extends BaseActivity {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
             takePicBtn.setVisibility(View.GONE);
+            addPicBtn.setVisibility(View.GONE);
+            trainBtn.setVisibility(View.GONE);
             predictionValue.setVisibility(View.GONE);
         }
 
@@ -200,17 +210,25 @@ public class LandingPageActivity extends BaseActivity {
             try {
                 ArrayList<String> result = new ArrayList<String>();
                 File file = new File(args[0]);
-                final List<ClarifaiOutput<Concept>> predictionResults =
+
+                /*final List<ClarifaiOutput<Concept>> predictionResults =
                         client.getDefaultModels().generalModel() // You can also do client.getModelByID("id") to get custom models
                                 .predict()
                                 .withInputs(
                                         ClarifaiInput.forImage(ClarifaiImage.of(file))
                                 )
                                 .executeSync()
-                                .get();
+                                .get();*/
 
-                result.add(predictionResults.get(0).data().get(0).name());
-                result.add(predictionResults.get(0).data().get(1).name());
+                List<ClarifaiOutput<Prediction>> predictionResults = client.predict("TestModel")
+                        .withInputs(
+                                ClarifaiInput.forImage(ClarifaiImage.of(file))
+                        )
+                        .executeSync().get();
+
+                Concept concept = (Concept) predictionResults.get(0).data().get(0);
+
+                result.add(concept.name().toString());
                 return result;
 
             } catch (Exception e) {
@@ -221,11 +239,13 @@ public class LandingPageActivity extends BaseActivity {
         protected void onPostExecute(ArrayList<String> result) {
             progressBar.setVisibility(View.GONE);
             takePicBtn.setVisibility(View.VISIBLE);
+            addPicBtn.setVisibility(View.VISIBLE);
+            trainBtn.setVisibility(View.VISIBLE);
             predictionValue.setVisibility(View.VISIBLE);
             if(result==null){
 
             }else{
-                predictionValue.setText("I think you're seeing a "+result.get(0)+", or maybe a "+result.get(1));
+                predictionValue.setText("I think you're seeing a "+result.get(0));
             }
         }
     }

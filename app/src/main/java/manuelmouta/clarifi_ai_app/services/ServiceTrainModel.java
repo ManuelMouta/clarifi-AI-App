@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import clarifai2.dto.model.ConceptModel;
-import manuelmouta.clarifi_ai_app.interfaces.AddToModelService;
 import manuelmouta.clarifi_ai_app.interfaces.TrainModelService;
 
 /**

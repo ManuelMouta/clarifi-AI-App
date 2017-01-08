@@ -90,6 +90,7 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
         addConceptParser = new ServiceAddConcept(mCtx,client,concept);
         addConceptParser.serviceAddConcept = service;
+        progressBar.setVisibility(View.VISIBLE);
         addConceptParser.execute();
     }
 
@@ -111,7 +112,6 @@ public class AddImageActivity extends BaseActivity implements AddConceptService,
 
         addImageParser = new ServiceAddImage(mCtx,imagePath,client,concept);
         addImageParser.serviceAddImage = service1;
-        progressBar.setVisibility(View.VISIBLE);
         addImageParser.execute();
     }
 

@@ -34,6 +34,7 @@ import clarifai2.dto.prediction.Concept;
 import clarifai2.dto.prediction.Prediction;
 import clarifai2.internal.JSONObjectBuilder;
 import manuelmouta.clarifi_ai_app.R;
+import manuelmouta.clarifi_ai_app.interfaces.TrainModelService;
 
 /**
  * Created by manuelmouta on 05/01/17.
@@ -158,7 +159,7 @@ public class LandingPageActivity extends BaseActivity {
                 startActivity(intent);
             }
             else if(action.equals("train")){
-                Intent intent = new Intent(LandingPageActivity.this,AddImageActivity.class);
+                Intent intent = new Intent(LandingPageActivity.this,TrainModelService.class);
                 intent.putExtra("photoPath",mCurrentPhotoPath);
                 startActivity(intent);
             }

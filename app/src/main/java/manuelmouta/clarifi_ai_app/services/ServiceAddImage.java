@@ -37,7 +37,9 @@ public class ServiceAddImage extends AsyncTask<String, Void, Boolean> {
     @Override
     protected Boolean doInBackground(String... params) {
         File imgFile = new File(imagePath);
+        String imageRes = params[0];
         try {
+            if(imageRes.equals("yes"))
             client.addInputs()
                     .plus(
                             ClarifaiInput.forImage(ClarifaiImage.of(imgFile))
@@ -46,6 +48,15 @@ public class ServiceAddImage extends AsyncTask<String, Void, Boolean> {
                                     )
                     )
                     .executeSync();
+            else if(imageRes.equals("no"))
+                client.addInputs()
+                        .plus(
+                                ClarifaiInput.forImage(ClarifaiImage.of(imgFile))
+                                        .withConcepts(
+                                                Concept.forID(concept).withValue(false)
+                                        )
+                        )
+                        .executeSync();
             return true;
         }catch (Exception e){
             return false;

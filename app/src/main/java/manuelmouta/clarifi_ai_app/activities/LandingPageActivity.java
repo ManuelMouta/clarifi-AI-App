@@ -33,6 +33,7 @@ import clarifai2.dto.model.output.ClarifaiOutput;
 import clarifai2.dto.prediction.Concept;
 import clarifai2.dto.prediction.Prediction;
 import clarifai2.internal.JSONObjectBuilder;
+import manuelmouta.clarifi_ai_app.BuildConfig;
 import manuelmouta.clarifi_ai_app.R;
 import manuelmouta.clarifi_ai_app.interfaces.TrainModelService;
 
@@ -66,6 +67,11 @@ public class LandingPageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (!BuildConfig.DEV_VERSION) {
+            Intent intent = new Intent(LandingPageActivity.this,LandingPageActivity.class);
+        }
+
         setContentView(R.layout.landing_page);
 
         takePicBtn = (Button) findViewById(R.id.takePicBtn);

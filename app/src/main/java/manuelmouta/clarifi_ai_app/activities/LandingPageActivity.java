@@ -70,6 +70,7 @@ public class LandingPageActivity extends BaseActivity {
 
         if (!BuildConfig.DEV_VERSION) {
             Intent intent = new Intent(LandingPageActivity.this,LandingPageActivity.class);
+            startActivity(intent);
         }
 
         setContentView(R.layout.landing_page);

@@ -1,6 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    repositories {
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
     defaultConfig {
@@ -35,6 +42,7 @@ android {
 }
 
 dependencies {
+    compile project(':library')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -42,6 +50,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.clarifai.clarifai-api2:core:2.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.github.ozodrukh:CircularReveal:1.0.4'
     testCompile 'junit:junit:4.12'
 
 }

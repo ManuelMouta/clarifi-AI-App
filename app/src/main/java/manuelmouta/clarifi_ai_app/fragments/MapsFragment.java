@@ -34,12 +34,14 @@ public class MapsFragment extends Fragment implements ScreenShotable {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.containerView = view.findViewById(R.id.container_maps);
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         res = getArguments().getInt(Integer.class.getName());
+
     }
 
     @Override

@@ -15,6 +15,13 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +40,7 @@ import yalantis.com.sidemenu.util.ViewAnimator;
  * Created by manuelmouta on 09/01/17.
  */
 
-public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnimator.ViewAnimatorListener{
+public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnimator.ViewAnimatorListener, OnMapReadyCallback {
 
     private List<SlideMenuItem> list = new ArrayList<>();
 
@@ -49,13 +56,21 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
 
     private int res;
 
+    public GoogleMap mMap;
+
+    private SupportMapFragment mapFragment;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_landing_page);
 
-        contentFragment = LandingFragment.newInstance(R.drawable.ic_photo_camera_black_36dp);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        contentFragment = LandingFragment.newInstance(R.drawable.ic_camera_white);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, contentFragment)
@@ -78,10 +93,12 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
     }
 
     private void createMenuList() {
-        SlideMenuItem menuItem0 = new SlideMenuItem(LandingFragment.HOME, R.drawable.ic_photo_camera_black_36dp);
+        SlideMenuItem menuItem0 = new SlideMenuItem(LandingFragment.CLOSE, R.drawable.ic_close_red);
         list.add(menuItem0);
-        SlideMenuItem menuItem = new SlideMenuItem(LandingFragment.MAP, R.drawable.ic_add_location);
+        SlideMenuItem menuItem = new SlideMenuItem(LandingFragment.HOME, R.drawable.ic_camera_white);
         list.add(menuItem);
+        SlideMenuItem menuItem2 = new SlideMenuItem(LandingFragment.MAP, R.drawable.ic_location);
+        list.add(menuItem2);
     }
     private void setActionBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -119,6 +136,18 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
     }
 
     @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney, Australia, and move the camera.
+        LatLng don = new LatLng(38.746851, -9.189231);
+        mMap.addMarker(new MarkerOptions().position(don).title("Don Giovanni"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(don));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(don.latitude, don.longitude), 12.0f));
+
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
@@ -152,7 +181,7 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
 
 
     private ScreenShotable replaceFragment(ScreenShotable screenShotable, int topPosition) {
-        this.res = this.res == R.drawable.ic_photo_camera_black_36dp ? R.drawable.ic_add_location : R.drawable.ic_photo_camera_black_36dp;
+        this.res = this.res == R.drawable.ic_camera_white ? R.drawable.ic_location : R.drawable.ic_camera_white;
         View view = findViewById(R.id.content_frame);
         int finalRadius = Math.max(view.getWidth(), view.getHeight());
         SupportAnimator animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0, finalRadius);
@@ -172,11 +201,18 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
             case LandingFragment.CLOSE:
                 return screenShotable;
             case LandingFragment.HOME:
-                return replaceFragment(screenShotable, position);
+                SupportMapFragment mMapFragment = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map));
+                mMapFragment.getView().setVisibility(View.INVISIBLE);
+
+                getSupportFragmentManager().beginTransaction().remove(mapFragment).commit();
+                LandingFragment landingFragment = LandingFragment.newInstance(this.res);
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, landingFragment).commit();
+
+                return landingFragment;
             case LandingFragment.MAP:
                 MapsFragment mapsFragment = MapsFragment.newInstance(this.res);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, mapsFragment).commit();
-                return contentFragment;
+                return mapsFragment;
             default:
                 return replaceFragment(screenShotable, position);
         }
@@ -199,5 +235,4 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
     public void addViewToContainer(View view) {
         linearLayout.addView(view);
     }
-
 }

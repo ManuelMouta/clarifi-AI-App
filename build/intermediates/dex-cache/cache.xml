@@ -39,24 +39,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/manuelmouta/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/support-annotations-24.2.1_df35a64c63eb7969c2ad7d3dc328f4d598fb2c46/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/manuelmouta/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta4_9d0915b6d7d2420b8565e2f4d609b164ded25b48/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -75,24 +57,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-v4-24.2.1_a71439a98b362939e1449cc830831b1db7e68ff1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_77c36b2270765dcb456419f1c66b2999d2c6f376/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -108,15 +72,6 @@
         revision="24.0.3"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/internal_impl-24.2.1_a1a5274202f1d056d72a20faee5906a68a254603/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_c92430d1c29eb3b1f383df73e8aef2077d395afa/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,20 +102,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_822468518c42467fa6c9f488f2b4394a2eccdf93/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/incremental-classes/storeVersion/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="edb4be1bfbb11ab61e1dd8d1d7605ecb6f5b4a0c">
+        sha1="d226c27587ac33905603b3574671ed6b721d12b8">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/instant-run-bootstrap_e46c55f502820c5d2c6c83cef32bc012b5a32a87/classes.dex" />
     </item>
     <item
@@ -174,21 +120,84 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/incremental-runtime-classes/storeVersion/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="3ffc2e13d22041803a79b880fd9031d2738fb37d">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/instant-run_48d1b73f1e547e0054246750adf59cf4d3112fee/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/internal_impl-24.2.1_5125ccf1841104184b187bad9fad7cac825eb831/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/.gradle/caches/modules-2/files-2.1/com.clarifai.clarifai-api2/core/2.1.0/f1ef77f0d5c82e1a8f2bc88f596e747602375f26/core-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f1ef77f0d5c82e1a8f2bc88f596e747602375f26">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/core-2.1.0_f47becb30ac0de8b90bec041e6943d6819d041c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/support-annotations-24.2.1_df35a64c63eb7969c2ad7d3dc328f4d598fb2c46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta4_9d0915b6d7d2420b8565e2f4d609b164ded25b48/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-v4-24.2.1_a71439a98b362939e1449cc830831b1db7e68ff1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_77c36b2270765dcb456419f1c66b2999d2c6f376/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_c92430d1c29eb3b1f383df73e8aef2077d395afa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_822468518c42467fa6c9f488f2b4394a2eccdf93/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/incremental-runtime-classes/storeVersion/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1c5df3e155dca18a01be511b70abc305e09406ef">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/instant-run_48d1b73f1e547e0054246750adf59cf4d3112fee/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -216,15 +225,6 @@
         revision="24.0.3"
         sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/okio-1.9.0_7c321bbbfddc48691c5085fd04a3f04a2370b751/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/manuelmouta/.gradle/caches/modules-2/files-2.1/com.clarifai.clarifai-api2/core/2.1.0/f1ef77f0d5c82e1a8f2bc88f596e747602375f26/core-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="f1ef77f0d5c82e1a8f2bc88f596e747602375f26">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/core-2.1.0_f47becb30ac0de8b90bec041e6943d6819d041c0/classes.dex" />
     </item>
 
 </items>

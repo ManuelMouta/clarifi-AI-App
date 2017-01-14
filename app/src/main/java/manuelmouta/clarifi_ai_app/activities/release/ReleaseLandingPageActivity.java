@@ -23,6 +23,7 @@ import io.codetail.animation.ViewAnimationUtils;
 import manuelmouta.clarifi_ai_app.R;
 import manuelmouta.clarifi_ai_app.activities.BaseActivity;
 import manuelmouta.clarifi_ai_app.fragments.LandingFragment;
+import manuelmouta.clarifi_ai_app.fragments.MapsFragment;
 import yalantis.com.sidemenu.interfaces.Resourceble;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
@@ -170,6 +171,12 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
         switch (slideMenuItem.getName()) {
             case LandingFragment.CLOSE:
                 return screenShotable;
+            case LandingFragment.HOME:
+                return replaceFragment(screenShotable, position);
+            case LandingFragment.MAP:
+                MapsFragment mapsFragment = MapsFragment.newInstance(this.res);
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, mapsFragment).commit();
+                return contentFragment;
             default:
                 return replaceFragment(screenShotable, position);
         }

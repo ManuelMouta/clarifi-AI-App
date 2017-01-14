@@ -70,6 +70,9 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        SupportMapFragment mMapFragment = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map));
+        mMapFragment.getView().setVisibility(View.INVISIBLE);
+
         contentFragment = LandingFragment.newInstance(R.drawable.ic_camera_white);
 
         getSupportFragmentManager().beginTransaction()
@@ -197,22 +200,20 @@ public class ReleaseLandingPageActivity extends BaseActivity implements ViewAnim
 
     @Override
     public ScreenShotable onSwitch(Resourceble slideMenuItem, ScreenShotable screenShotable, int position) {
+        SupportMapFragment mMapFragment = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map));
         switch (slideMenuItem.getName()) {
             case LandingFragment.CLOSE:
                 return screenShotable;
             case LandingFragment.HOME:
-                SupportMapFragment mMapFragment = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map));
                 mMapFragment.getView().setVisibility(View.INVISIBLE);
 
-                getSupportFragmentManager().beginTransaction().remove(mapFragment).commit();
                 LandingFragment landingFragment = LandingFragment.newInstance(this.res);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, landingFragment).commit();
 
                 return landingFragment;
             case LandingFragment.MAP:
-                MapsFragment mapsFragment = MapsFragment.newInstance(this.res);
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, mapsFragment).commit();
-                return mapsFragment;
+                mMapFragment.getView().setVisibility(View.VISIBLE);
+                return replaceFragment(screenShotable, position);
             default:
                 return replaceFragment(screenShotable, position);
         }

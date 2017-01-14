@@ -48,21 +48,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_32f219fa96d9b660be3095d2f75b1787646445c3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/manuelmouta/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="0a9cb567dc008f570c28531720168f19148da965">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta4_9d0915b6d7d2420b8565e2f4d609b164ded25b48/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_32f219fa96d9b660be3095d2f75b1787646445c3/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -160,7 +160,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="7799bad0abce3d7b834b9adab1b1d4629b488530">
+        sha1="edb4be1bfbb11ab61e1dd8d1d7605ecb6f5b4a0c">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/instant-run-bootstrap_e46c55f502820c5d2c6c83cef32bc012b5a32a87/classes.dex" />
     </item>
     <item
@@ -178,7 +178,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e87c6b370b7975b42a564f63581ccd09bce11289">
+        sha1="3ffc2e13d22041803a79b880fd9031d2738fb37d">
         <dex dex="/Users/manuelmouta/Desktop/Android/MyApps/Clarifi_AI_App/app/build/intermediates/transforms/dex/storeVersion/debug/folders/1000/10/instant-run_48d1b73f1e547e0054246750adf59cf4d3112fee/classes.dex" />
     </item>
     <item

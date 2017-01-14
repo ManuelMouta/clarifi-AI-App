@@ -18,11 +18,21 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
 
 public class LandingFragment extends Fragment implements ScreenShotable {
 
+    public static final String CLOSE = "Close";
     public static final String HOME = "Home";
     public static final String MAP = "Map";
 
     private View containerView;
     private Bitmap bitmap;
+    protected int res;
+
+    public static LandingFragment newInstance(int resId) {
+        LandingFragment contentFragment = new LandingFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(Integer.class.getName(), resId);
+        contentFragment.setArguments(bundle);
+        return contentFragment;
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -33,6 +43,7 @@ public class LandingFragment extends Fragment implements ScreenShotable {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        res = getArguments().getInt(Integer.class.getName());
     }
 
     @Override

@@ -21,11 +21,6 @@
                 android:layout_weight="2"
                 android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="City Guide"
-                    android:textSize="36sp"/>
 
             </LinearLayout>
 
